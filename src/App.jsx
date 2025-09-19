@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './index.css'
 import Gerador from './components/Gerador'
 import Agenda from './components/Agenda'
 
@@ -7,6 +8,7 @@ function App() {
 
   return (
     <div className='container'>
+
       <div className='titulo'>
         <div>
           <h1>WhatsSM</h1>
@@ -14,11 +16,11 @@ function App() {
         <div>
           <p>O jeito mais rápido de iniciar conversas no WhatsApp. Gere links instantâneos e mantenha seus contatos organizados.</p>
         </div>
-
       </div>
-      <div>
-        <Gerador/>
-        <Agenda/>
+
+      <div className='caixas'>
+        <div><Gerador/></div>
+        <div><Agenda/></div>
       </div>
       
     </div>
