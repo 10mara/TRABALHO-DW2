@@ -1,7 +1,7 @@
-
+import "./styles/Agenda.css"
 export default function Agenda(){
     return(
-        <div className="box">
+        <div className="boxAgd">
 
             <div className="header">
                 <h1>Agenda de Contatos</h1>

@@ -1,0 +1,78 @@
+/* Gerador.css */
+
+.boxGrd {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  max-width: 300px;
+  height: 500px;
+  transition: all 0.3s ease;
+}
+
+.header h1 {
+  color: #128c7e;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mensagem {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.botaoComIcone {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.botaoComIcone:hover {
+  background-color: #1da851;
+}
+
+.linkGerado {
+  margin-top: 30px;
+}
+
+.linkGerado h2 {
+  margin-bottom: 10px;
+}
+
+.copiarLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.link {
+  word-break: break-all;
+  flex: 1;
+}
+
+/* Responsivo - Gerador.css ou Agenda.css */
+
+@media (max-width: 768px) {
+  .box {
+    height: auto; /* Deixa altura flexível no mobile */
+    max-height: 500px; /* Para manter scroll se necessário */
+    overflow-y: auto;
+  }
+}

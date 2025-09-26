@@ -1,8 +1,8 @@
 
-
+import "./styles/Gerador.css"
 export default function Gerador(){
     return(
-        <div className="box">
+        <div className="boxGrd">
 
             <div className="header">
                 <h1>Gerador de Links</h1>
