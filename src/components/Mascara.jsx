@@ -33,6 +33,7 @@ export default function MascaraTelefone({ value, onChange }) {
 
   return (
     <div>
+      <h2>Número do WhatsApp</h2>
       <input
         type="text"
         value={formatarTelefone(value)}  // Exibe a máscara dinamicamente
