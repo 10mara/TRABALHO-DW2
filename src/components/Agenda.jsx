@@ -19,7 +19,7 @@ export default function Agenda(){
             </div>
 
             <div className="botaoSalvar">
-                 <button className="botaoComIcone"></button>
+                 <button className="botaoComIcone">Salvar na Agenda </button>
             </div>
 
             <div className="box2">
