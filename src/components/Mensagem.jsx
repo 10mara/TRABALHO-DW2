@@ -26,12 +26,16 @@ export default function Mensagem({ telefone }) {
 
   }
 
+  function copiarLink(){
+    const linkCopiado = navigator.clipboard.writeText(link)
+  }
+
   return (
     <div>
       <div>
         <h2>Mensagem (opcional)</h2>
-      <input
-        type="text"
+      <textarea
+        
         placeholder="Digite sua mensagem aqui..."
         value={mensagem}
         onChange={(e) => setMensagem(e.target.value)}
@@ -44,7 +48,7 @@ export default function Mensagem({ telefone }) {
           <h2>Link Gerado:</h2>
           <div className="copiarLink">
               <p className="link">{link}</p>
-              <button>Copiar</button>
+              <button onClick={copiarLink()}>Copiar</button>
           </div>
           <button className="botaoComIcone">Abrir Whatsapp</button>
           </div>
