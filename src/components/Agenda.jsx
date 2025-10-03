@@ -1,9 +1,11 @@
 import "./styles/Agenda.css"
+import agendaIcon from "./imgs/agenda.png"
 export default function Agenda(){
     return(
         <div className="boxAgd">
 
             <div className="header">
+                <img src={agendaIcon} alt="icone" width={30} height={30}/>
                 <h1>Agenda de Contatos</h1>
             </div>
 

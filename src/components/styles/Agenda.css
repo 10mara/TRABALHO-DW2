@@ -23,7 +23,6 @@
   color: #25d366;
   font-size: 1.8rem;
   margin-bottom: 20px;
-  text-align: center;
 }
 
 .box1 {
@@ -52,7 +51,7 @@ input[type="text"] {
 
 .botaoComIcone {
   padding: 10px 20px;
-  background-color: #25d366;
+  background: linear-gradient(to left, #25d366, #207a2f);
   color: white;
   border: none;
   border-radius: 5px;

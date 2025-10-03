@@ -12,11 +12,12 @@
   overflow-y: auto; 
 }
 
+
 .header h1 {
   color: #25d366;
   font-size: 1.8rem;
   margin-bottom: 20px;
-  text-align: center;
+ 
 }
 
 .mensagem {
