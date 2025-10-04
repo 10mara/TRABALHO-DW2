@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./styles/Gerador.css";
 import "./styles/Mensagem.css"
 import whatsIcon from "./imgs/whats.png"
+import linkIcon from "./imgs/link.png"
 export default function Mensagem({ telefone }) {
   const [mensagem, setMensagem] = useState("");
   const [link, setLink] = useState(""); // estado para o input
@@ -52,7 +53,9 @@ export default function Mensagem({ telefone }) {
           <h2>Link Gerado:</h2>
           <div className="copiarLink">
               <p className="link">{link}</p>
-              <button onClick={copiarLink()}>Copiar</button>
+              <button id="link" onClick={copiarLink()}>
+                <img src={linkIcon} alt=""width={25} height={25} />
+              </button>
           </div>
           <button className="botaoComIcone">
           <img src={whatsIcon} alt="" width={15} height={15} /> Abrir Whatsapp</button>

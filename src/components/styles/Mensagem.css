@@ -2,8 +2,14 @@
 textarea {
   max-width:95%;
   min-width: 95%;
+  border-color: rgb(211, 210, 210);
+  border-radius: 6px;
+  padding: 8px;
 }
 .botaoComIcone{
   width: 100%;
   
+}
+#link{
+  border: none;
 }
