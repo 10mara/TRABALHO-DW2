@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import './index.css'
-import Gerador from './components/Gerador'
-import Agenda from './components/Agenda'
-
+import { useState } from 'react';
+import './index.css';
+import Gerador from './components/Gerador';
+import Agenda from './components/Agenda';
 
 function App() {
+  const [telefoneSelecionado, setTelefoneSelecionado] = useState("");
 
   return (
     <div className='container'>
-
       <div className='titulo'>
         <div>
           <h1>WhatsSM</h1>
@@ -19,12 +18,11 @@ function App() {
       </div>
 
       <div className='caixas'>
-        <div><Gerador/></div>
-        <div><Agenda/></div>
+        <div><Gerador telefoneSelecionado={telefoneSelecionado} setTelefoneSelecionado={setTelefoneSelecionado} /></div>
+        <div><Agenda setTelefoneSelecionado={setTelefoneSelecionado} /></div>
       </div>
-      
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,15 +1,34 @@
+.mensagem {
+  margin-top: var(--spacing-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 textarea {
-  max-width:95%;
-  min-width: 95%;
+  max-width: 10px;
+  min-width: 94%;
   border-color: rgb(211, 210, 210);
   border-radius: 6px;
   padding: 8px;
 }
-.botaoComIcone{
-  width: 100%;
-  
+
+
+.mensagem .botaoComIcone {
+  margin-top: var(--spacing-base);
 }
-#link{
+
+.linkGerado {
+  width: 100%;
+}
+
+.copiarLink button {
+  background: none;
   border: none;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .boxGrd {
+    min-width: 90%;
+  }
 }

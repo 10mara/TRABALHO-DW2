@@ -1,68 +1,66 @@
-/* Gerador.css */
-
 .boxGrd {
-  background-color: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  max-width: 300px;
-  height: 500px;
-  transition: all 0.3s ease;
-  overflow-y: auto; 
+  background-color: var(--color-input-bg);
+  padding: var(--spacing-large);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 300px; /* largura fixa */
+  height: 500px; /* altura fixa */
+  overflow-y: auto; /* rolagem interna */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
 .header h1 {
-  color: #25d366;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
- 
+  color: var(--color-primary);
+  font-size: var(--font-size-subtitle);
+  margin-bottom: var(--spacing-large);
 }
 
-.mensagem {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-}
-
-.boxGrd input[type="text"] {
-  width: 90%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-top: 5px;
+textarea {
+  max-width: 95%;
+  min-width: 95%;
+  border-color: var(--color-input-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-base);
 }
 
 .botaoComIcone {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #25d366;
+  width: 100%;
+  margin-top: var(--spacing-base);
+  padding: var(--spacing-base) var(--spacing-large);
+  background-color: var(--color-primary);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   cursor: pointer;
+  display: flex;
+  align-items: center;    /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 8px;                /* Espaço entre ícone e texto */
 }
 
 .botaoComIcone:hover {
-  background-color: #1da851;
+  background-color: var(--color-primary-dark);
 }
 
 .linkGerado {
-  margin-top: 30px;
+  margin-top: var(--spacing-large);
+  width: 100%;
 }
 
 .linkGerado h2 {
-  margin-bottom: 10px;
+  margin-bottom: var(--spacing-base);
 }
 
 .copiarLink {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-radius: 6px;
+  gap: var(--spacing-base);
+  background-color: var(--color-link-bg);
+  padding: var(--spacing-base);
+  border-radius: var(--border-radius);
 }
 
 .link {
@@ -70,12 +68,8 @@
   flex: 1;
 }
 
-/* Responsivo - Gerador.css ou Agenda.css */
-
 @media (max-width: 768px) {
-  .box {
-    height: auto; /* Deixa altura flexível no mobile */
-    max-height: 500px; /* Para manter scroll se necessário */
-    overflow-y: auto;
+  .boxGrd {
+    width: 90%;
   }
 }

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./styles/Gerador.css";
-import "./styles/Mensagem.css"
-import whatsIcon from "./imgs/whats.png"
-import linkIcon from "./imgs/link.png"
+import "./styles/Mensagem.css";
+import whatsIcon from "./imgs/whats.png";
+import linkIcon from "./imgs/link.png";
+
 export default function Mensagem({ telefone }) {
   const [mensagem, setMensagem] = useState("");
-  const [link, setLink] = useState(""); // estado para o input
+  const [link, setLink] = useState("");
 
   function handlePrepararMensagem() {
     if (!telefone || telefone.trim() === "") {
@@ -18,48 +19,46 @@ export default function Mensagem({ telefone }) {
       return;
     }
 
-    // remove símbolos extras, deixa só números
     const numeroLimpo = `${telefone.slice(0, 2)}${telefone.slice(2, 7)}${telefone.slice(7)}`;
-
-    // codifica a mensagem para URL
     const mensagemCodificada = encodeURIComponent(mensagem);
 
-    setLink (`https://wa.me/55${numeroLimpo}?text=${mensagemCodificada}`);
-
+    setLink(`https://wa.me/55${numeroLimpo}?text=${mensagemCodificada}`);
   }
 
-  function copiarLink(){
-    const linkCopiado = navigator.clipboard.writeText(link)
+  function copiarLink() {
+    navigator.clipboard.writeText(link);
+  }
+
+  function abrirWhatsapp() {
+    if (link) window.open(link, "_blank");
   }
 
   return (
-    <div>
+    <div className="mensagem">
       <div>
         <h2>Mensagem (opcional)</h2>
-      <textarea
-        
-        placeholder="Digite sua mensagem aqui..."
-        value={mensagem}
-        onChange={(e) => setMensagem(e.target.value)}
-      />
-     
-      <button className="botaoComIcone" onClick={handlePrepararMensagem}>
-        <img src={whatsIcon} alt="" width={15} height={15} /> Preparar Mensagem
-      </button>
-      
-      
+        <textarea
+          placeholder="Digite sua mensagem aqui..."
+          value={mensagem}
+          onChange={(e) => setMensagem(e.target.value)}
+        />
+        <button className="botaoComIcone" onClick={handlePrepararMensagem}>
+          <img src={whatsIcon} alt="" width={15} height={15} /> Preparar Mensagem
+        </button>
       </div>
-       <div className="linkGerado">
-          <h2>Link Gerado:</h2>
-          <div className="copiarLink">
-              <p className="link">{link}</p>
-              <button id="link" onClick={copiarLink()}>
-                <img src={linkIcon} alt=""width={25} height={25} />
-              </button>
-          </div>
-          <button className="botaoComIcone">
-          <img src={whatsIcon} alt="" width={15} height={15} /> Abrir Whatsapp</button>
-          </div>
+
+      <div className="linkGerado">
+        <h2>Link Gerado:</h2>
+        <div className="copiarLink">
+          <p className="link">{link}</p>
+          <button id="link" onClick={copiarLink}>
+            <img src={linkIcon} alt="" width={25} height={25} />
+          </button>
+        </div>
+        <button className="botaoComIcone" onClick={abrirWhatsapp}>
+          <img src={whatsIcon} alt="" width={15} height={15} /> Abrir WhatsApp
+        </button>
+      </div>
     </div>
   );
 }

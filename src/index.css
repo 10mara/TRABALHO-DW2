@@ -1,60 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+  --font-primary: "Montserrat", sans-serif;
+
+  --color-bg: #f5f7fa;
+  --color-text: #333;
+  --color-primary: #25d366;
+  --color-primary-dark: #1da851;
+  --color-gradient-start: #25d366;
+  --color-gradient-end: #207a2f;
+  --color-input-border: #ccc;
+  --color-input-bg: #fff;
+  --color-link-bg: #f0f0f0;
+  --color-gray:#7c7b7b;
+
+  --spacing-base: 10px;
+  --spacing-large: 20px;
+  --spacing-xlarge: 40px;
+
+  --border-radius: 6px;
+  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  --font-size-title: 2.5rem;
+  --font-size-subtitle: 1.8rem;
+  --font-size-text: 1.1rem;
+}
 
 body {
-    font-family:"Montserrat", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f7fa;
-    color: #333;
-  }
-  .header{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-  
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px 20px;
-  }
-  
-  .titulo {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .titulo h1 {
-    font-size: 2.5rem;
-    color: #25d366;
-    margin-bottom: 10px;
-  }
-  
-  .titulo p {
-    font-size: 1.1rem;
-    color: #555;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .caixas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 110px;
-    justify-content: center;
-  }
-  
-  /* Responsivo para telas menores */
-@media (max-width: 768px) {
-    .caixas {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .box {
-      width: 90%; /* Ocupa quase toda a largura da tela */
-      max-width: none;
-    }
-  }
+  font-family: var(--font-primary);
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base);
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xlarge) var(--spacing-base);
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: var(--spacing-xlarge);
+}
+
+.titulo h1 {
+  font-size: var(--font-size-title);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-base);
+}
+
+.titulo p {
+  font-size: var(--font-size-text);
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.caixas {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-large);
+  flex-wrap: wrap;
+}
