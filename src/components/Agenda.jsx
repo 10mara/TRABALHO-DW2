@@ -2,7 +2,7 @@ import "./styles/Agenda.css";
 import agendaIcon from "./imgs/agenda.png";
 import { useState } from "react";
 import salvarIcon from "./imgs/salvar.png";
-
+import Mascara from "./Mascara"
 
 export default function Agenda({ setTelefoneSelecionado }) {
   const [nome, setNome] = useState("");
@@ -48,7 +48,8 @@ export default function Agenda({ setTelefoneSelecionado }) {
         </div>
         <div className="numero">
           <h2>Número</h2>
-          <input type="text" placeholder="Número" value={numero} onChange={(e) => setNumero(e.target.value)} />
+          {/* <input type="text" placeholder="Número" value={numero} onChange={(e) => setNumero(e.target.value)} /> */}
+          <Mascara value={numero} onChange={setNumero}/>
         </div>
       </div>
 

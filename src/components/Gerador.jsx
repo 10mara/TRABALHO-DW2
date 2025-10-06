@@ -18,7 +18,11 @@ export default function Gerador({ telefoneSelecionado, setTelefoneSelecionado })
         <h1>Gerador de Links</h1>
       </div>
 
-      <Mascara value={telefone} onChange={setTelefone} />
+      <div>
+        <h2>Número do WhatsApp</h2>
+        <Mascara value={telefone} onChange={setTelefone} />
+      </div>
+      
       <Mensagem telefone={telefone} />
     </div>
   );

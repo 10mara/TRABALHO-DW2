@@ -19,7 +19,6 @@ export default function Mascara({ value, onChange }) {
 
   return (
     <div>
-      <h2>Número do WhatsApp</h2>
       <input
         type="text"
         value={formatarTelefone(value)}
