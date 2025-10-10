@@ -48,7 +48,6 @@ export default function Agenda({ setTelefoneSelecionado }) {
         </div>
         <div className="numero">
           <h2>Número</h2>
-          {/* <input type="text" placeholder="Número" value={numero} onChange={(e) => setNumero(e.target.value)} /> */}
           <Mascara value={numero} onChange={setNumero}/>
         </div>
       </div>

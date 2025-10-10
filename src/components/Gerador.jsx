@@ -17,13 +17,12 @@ export default function Gerador({ telefoneSelecionado, setTelefoneSelecionado })
         <img src={geradorIcon} alt="icone" width={30} height={30} />
         <h1>Gerador de Links</h1>
       </div>
-
-      <div>
+      <div className="gerador">
         <h2>Número do WhatsApp</h2>
         <Mascara value={telefone} onChange={setTelefone} />
+        <Mensagem telefone={telefone} />
       </div>
       
-      <Mensagem telefone={telefone} />
     </div>
   );
 }

@@ -2,14 +2,15 @@ import { useState } from 'react';
 import './index.css';
 import Gerador from './components/Gerador';
 import Agenda from './components/Agenda';
-
+import WhatsAppImg from '../src/assets/logo-whatsapp.webp'
 function App() {
   const [telefoneSelecionado, setTelefoneSelecionado] = useState("");
 
   return (
     <div className='container'>
       <div className='titulo'>
-        <div>
+        <div className='header'>
+          <img src={WhatsAppImg} alt="" width={60} height={60}/>
           <h1>WhatsSM</h1>
         </div>
         <div>

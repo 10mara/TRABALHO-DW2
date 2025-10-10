@@ -18,7 +18,7 @@ export default function Mascara({ value, onChange }) {
   };
 
   return (
-    <div>
+    <div className='mascara'>
       <input
         type="text"
         value={formatarTelefone(value)}

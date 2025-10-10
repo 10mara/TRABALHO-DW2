@@ -2,15 +2,18 @@
   margin-top: var(--spacing-base);
   display: flex;
   flex-direction: column;
-  align-items: center;
+
 }
 
 textarea {
   max-width: 10px;
   min-width: 94%;
-  border-color: rgb(211, 210, 210);
+  border:none;
   border-radius: 6px;
   padding: 8px;
+  background-color: var(--color-link-bg);
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
 }
 
 

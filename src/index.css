@@ -7,10 +7,10 @@
   --color-primary-dark: #1da851;
   --color-gradient-start: #25d366;
   --color-gradient-end: #207a2f;
-  --color-input-border: #ccc;
+  --color-input-border: #c5c5c5;
   --color-input-bg: #fff;
-  --color-link-bg: #f0f0f0;
-  --color-gray:#7c7b7b;
+  --color-link-bg: #f5f5f5;
+  --color-gray:#c5c5c5;
 
   --spacing-base: 10px;
   --spacing-large: 20px;
@@ -23,6 +23,7 @@
   --font-size-subtitle: 1.8rem;
   --font-size-text: 1.1rem;
 }
+
 
 body {
   font-family: var(--font-primary);
@@ -37,6 +38,21 @@ body {
   align-items: center;
   gap: var(--spacing-base);
   justify-content: center;
+}
+.titulo h1{
+  background: linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+      /* Para navegadores baseados em Chromium */
+      
+      /* Compatibilidade com Firefox */
+  background-clip: text;
+  color: transparent;
+}
+.header h1 {
+  color: var(--color-text);
+  font-size: var(--font-size-subtitle);
+  margin-bottom: var(--spacing-large);
 }
 
 .container {
@@ -69,3 +85,15 @@ body {
   gap: var(--spacing-large);
   flex-wrap: wrap;
 }
+
+h2{
+  font-size: 1rem;
+}
+input {
+  padding: var(--spacing-base);
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color-link-bg);
+  width: 90%;
+}
+
