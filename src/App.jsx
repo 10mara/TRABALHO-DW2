@@ -3,9 +3,12 @@ import './index.css';
 import Gerador from './components/Gerador';
 import Agenda from './components/Agenda';
 import WhatsAppImg from '../src/assets/logo-whatsapp.webp'
+import React from "react"
+
 function App() {
   const [telefoneSelecionado, setTelefoneSelecionado] = useState("");
-
+  const [telefone, setTelefone] = React.useState("")
+  const [mensagem, setMensagem] = React.useState("")
   return (
     <div className='container'>
       <div className='titulo'>
@@ -20,6 +23,7 @@ function App() {
 
       <div className='caixas'>
         <div><Gerador telefoneSelecionado={telefoneSelecionado} setTelefoneSelecionado={setTelefoneSelecionado} /></div>
+        
         <div><Agenda setTelefoneSelecionado={setTelefoneSelecionado} /></div>
       </div>
     </div>
