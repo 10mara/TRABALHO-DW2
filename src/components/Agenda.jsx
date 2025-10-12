@@ -4,7 +4,7 @@ import salvarIcon from "./imgs/salvar.png";
 import Mascara from "./Mascara";
 import { useState, useEffect } from "react";
 import { supabase } from "../supabaseClient"; 
-
+import LixoImg from "./imgs/lixeira.png"
 export default function Agenda({ setTelefoneSelecionado }) {
   const [nome, setNome] = useState("");
   const [numero, setNumero] = useState("");
@@ -99,6 +99,7 @@ export default function Agenda({ setTelefoneSelecionado }) {
         <div className="nome">
           <h2>Nome</h2>
           <input
+            style={{"font-family": "var(--font-primary)"}}
             type="text"
             placeholder="Nome"
             value={nome}
@@ -123,15 +124,18 @@ export default function Agenda({ setTelefoneSelecionado }) {
         <div className="agenda">
           {contatos.map((contato) => (
             <div className="contato" key={contato.id}>
-              <h3>{contato.nome}</h3>
-              <p>{contato.numero}</p>
+              <div>
+                <h3>{contato.nome}</h3>
+                <p>{contato.numero}</p>
+              </div>
+              
               <div className="contato-buttons">
-                <button onClick={() => enviarMensagem(contato.numero)}>
+                <button style={{"font-family": "var(--font-primary)"}} onClick={() => enviarMensagem(contato.numero)}>
                   Mensagem
                 </button>
-                <button onClick={() => editarContato(contato.id)}>Editar</button>
-                <button onClick={() => deletarContato(contato.id)}>
-                  Deletar
+                <button style={{"font-family": "var(--font-primary)"}} onClick={() => editarContato(contato.id)}>Editar</button>
+                <button style={{"font-family": "var(--font-primary)",display:"flex", alignItems:"center"}} onClick={() => deletarContato(contato.id)}>
+                  <img src={LixoImg} alt="" width={15} height={15}/>
                 </button>
               </div>
             </div>

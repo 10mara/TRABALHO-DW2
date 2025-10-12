@@ -24,6 +24,7 @@ export default function Mascara({ value, onChange }) {
         value={formatarTelefone(value)}
         onChange={handleChange}
         placeholder="(xx) xxxxx-xxxx"
+        style={{"font-family": "var(--font-primary)"}}
       />
     </div>
   );

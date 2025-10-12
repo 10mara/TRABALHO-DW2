@@ -10,12 +10,36 @@
   flex-direction: column;
   align-items: center;
 }
+/* Estilização da barra de rolagem para .boxGrd */
+.boxGrd::-webkit-scrollbar {
+  width: 8px; /* largura da barra de rolagem */
+}
 
+.boxGrd::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05); /* cor do trilho/fundo */
+  border-radius: 10px;
+}
+
+.boxGrd::-webkit-scrollbar-thumb {
+  background: var(--color-gray); /* cor do "polegar" */
+  border-radius: 10px;
+}
+
+.boxGrd::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark); /* cor ao passar o mouse */
+}
+
+/* Para Firefox */
+.boxGrd {
+  scrollbar-width: thin; /* 'thin' ou 'auto' */
+  scrollbar-color: var(--color-gray) rgba(0, 0, 0, 0.05); /* polegar e trilho */
+}
 .gerador{
  width: 100%;
 }
 
 .botaoComIcone {
+  font-family: var(--font-primary);
   width: 100%;
   margin-top: var(--spacing-base);
   padding: var(--spacing-base) var(--spacing-large);
@@ -55,11 +79,4 @@
 .link {
   word-break: break-all;
   flex: 1;
-}
-
-
-@media (max-width: 768px) {
-  .boxGrd {
-    width: 90%;
-  }
 }

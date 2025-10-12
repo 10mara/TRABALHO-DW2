@@ -1,6 +1,8 @@
-:root {
-  --font-primary: "Montserrat", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+:root {
+  /* Atualize as variáveis de fonte */
+  --font-primary: "Nunito", sans-serif;
   --color-bg: #f5f7fa;
   --color-text: #333;
   --color-primary: #25d366;
@@ -96,4 +98,5 @@ input {
   background-color: var(--color-link-bg);
   width: 90%;
 }
+
 
