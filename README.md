@@ -7,7 +7,7 @@
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-**[🚀 Ver Aplicação Online](https://seu-projeto.vercel.app)** | **[📖 Documentação](#-sobre-o-projeto)** | **[💡 Funcionalidade Extra](#-funcionalidade-extra-tradução-automática)**
+**[🚀 Ver Aplicação Online](https://trabalho-dw-2-lewklpus4-samara081007-3304s-projects.vercel.app)** | **[📖 Documentação](#-sobre-o-projeto)** | **[💡 Funcionalidade Extra](#-funcionalidade-extra-tradução-automática)**
 
 </div>
 
