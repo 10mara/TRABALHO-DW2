@@ -1,12 +1,14 @@
-# React + Vite
+O projeto WhatsSM é uma aplicação desenvolvida em React que tem como objetivo facilitar a comunicação pelo WhatsApp, permitindo gerar links diretos para conversas e manter uma agenda de contatos organizada. Com uma interface simples e intuitiva, o usuário pode formatar números de telefone automaticamente, salvar, editar e excluir contatos conectados a um banco de dados no Supabase, além de enviar mensagens de forma prática sem precisar salvar o número manualmente no celular.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A estrutura do projeto é composta por diferentes componentes. O arquivo App.jsx é o componente principal que organiza a aplicação, exibindo o gerador de links e a agenda de contatos. Dentro da pasta components, estão os componentes responsáveis por cada funcionalidade: Gerador.jsx, que cria o link de conversa com base no número e na mensagem; Agenda.jsx, responsável por listar e gerenciar os contatos (com integração ao Supabase para operações de inserção, edição e exclusão); Mascara.jsx, que formata o número de telefone em tempo real; e Mensagem.jsx, onde o usuário pode digitar a mensagem que será enviada. A pasta imgs armazena os ícones utilizados na interface e a pasta styles contém os arquivos CSS de estilização de cada componente. Além disso, o arquivo supabaseClient.js faz a configuração da conexão com o banco de dados, utilizando as variáveis de ambiente definidas no arquivo .env.
 
-Currently, two official plugins are available:
+O projeto utiliza as tecnologias React.js para criação dos componentes e gerenciamento de estados, Supabase como banco de dados e backend, Vite como ferramenta de build e ambiente de desenvolvimento, e CSS Modules para estilização dos componentes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+No Supabase, é necessário criar uma tabela chamada contato com os campos: “id” (inteiro e chave primária), “nome” (texto) e “numero” (texto, contendo apenas dígitos). Para conectar o projeto ao banco, deve-se criar um arquivo .env na raiz do projeto e incluir as chaves de acesso, no formato:
+VITE_SUPABASE_URL=your-supabase-url e VITE_SUPABASE_KEY=your-supabase-key. Essas informações podem ser encontradas no painel do Supabase, na seção de configurações de API.
 
-## Expanding the ESLint configuration
+Para executar o projeto localmente, basta clonar o repositório, acessar a pasta do projeto, instalar as dependências com o comando npm install, criar o arquivo .env com as variáveis citadas e, em seguida, rodar o servidor local com o comando npm run dev. O aplicativo poderá ser acessado no navegador através do endereço http://localhost:5173.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Ao utilizar o WhatsSM, o usuário pode digitar o número de WhatsApp desejado, escrever uma mensagem e gerar instantaneamente o link para iniciar a conversa. Caso queira manter o contato salvo, basta usar a funcionalidade de agenda, que permite armazenar, editar ou excluir contatos de maneira simples. A partir da agenda, também é possível selecionar um número e abrir a conversa diretamente no WhatsApp, tornando o processo rápido e eficiente.
+
+O projeto WhatsSM foi desenvolvido por Marjory Gonçalves Cardoso como parte de uma prática acadêmica voltada ao aprendizado de React e integração com o banco de dados Supabase.

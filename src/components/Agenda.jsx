@@ -1,3 +1,4 @@
+// Importa estilos, ícones e dependências
 import "./styles/Agenda.css";
 import agendaIcon from "./imgs/agenda.png";
 import salvarIcon from "./imgs/salvar.png";
@@ -5,14 +6,16 @@ import Mascara from "./Mascara";
 import { useState, useEffect } from "react";
 import { supabase } from "../supabaseClient"; 
 import LixoImg from "./imgs/lixeira.png"
+
+// Componente de agenda: exibe, adiciona, edita e exclui contatos
 export default function Agenda({ setTelefoneSelecionado }) {
+  // Estados locais
   const [nome, setNome] = useState("");
   const [numero, setNumero] = useState("");
   const [contatos, setContatos] = useState([]);
   const [contatoEditando, setContatoEditando] = useState(null);
 
-
-  // Buscar contatos do Supabase
+  // Busca contatos armazenados no Supabase ao carregar o componente
   useEffect(() => {
     const fetchContatos = async () => {
       const { data, error } = await supabase.from("contato").select("*");
@@ -21,23 +24,23 @@ export default function Agenda({ setTelefoneSelecionado }) {
     fetchContatos();
   }, []);
 
-
-
+  // Insere ou atualiza contato no banco
   const salvarContato = async () => {
     if (!nome || !numero) return;
   
     if (contatoEditando) {
-      // Atualizar contato
+      // Atualiza contato existente
       const { error } = await supabase
         .from("contato")
         .update({ nome, numero })
         .eq("id", contatoEditando.id);
   
       if (!error) {
-        // Atualiza localmente na lista contatos
+        // Atualiza também a lista local
         setContatos((prev) =>
           prev.map((c) => (c.id === contatoEditando.id ? { ...c, nome, numero } : c))
         );
+        // Reseta campos
         setContatoEditando(null);
         setNome("");
         setNumero("");
@@ -45,7 +48,7 @@ export default function Agenda({ setTelefoneSelecionado }) {
         console.error("Erro ao atualizar contato:", error.message);
       }
     } else {
-      // Inserir novo contato
+      // Insere novo contato
       const { data, error } = await supabase
         .from("contato")
         .insert([{ nome, numero }]);
@@ -60,9 +63,7 @@ export default function Agenda({ setTelefoneSelecionado }) {
     }
   };
   
-  
-  
-
+  // Remove um contato do banco e da lista local
   const deletarContato = async (id) => {
     const { error } = await supabase.from("contato").delete().eq("id", id);
     if (!error) {
@@ -70,7 +71,7 @@ export default function Agenda({ setTelefoneSelecionado }) {
     }
   };
 
-
+  // Preenche os campos com dados do contato selecionado para edição
   const editarContato = (id) => {
     const contato = contatos.find(c => c.id === id);
     if (contato) {
@@ -80,21 +81,20 @@ export default function Agenda({ setTelefoneSelecionado }) {
     }
   };
   
-
-
+  // Envia o número selecionado para o gerador de mensagem
   const enviarMensagem = (numero) => {
     setTelefoneSelecionado(numero.replace(/\D/g, ""));
   };
 
-
-
   return (
     <div className="boxAgd">
+      {/* Cabeçalho da agenda */}
       <div className="header">
         <img src={agendaIcon} alt="icone" width={30} height={30} />
         <h1>Agenda de Contatos</h1>
       </div>
 
+      {/* Campos de entrada para nome e número */}
       <div className="box1">
         <div className="nome">
           <h2>Nome</h2>
@@ -112,6 +112,7 @@ export default function Agenda({ setTelefoneSelecionado }) {
         </div>
       </div>
 
+      {/* Botão para salvar ou atualizar contato */}
       <div className="botaoSalvar">
         <button className="botaoComIcone" onClick={salvarContato}>
           <img src={salvarIcon} alt="" width={15} height={15} />
@@ -119,6 +120,7 @@ export default function Agenda({ setTelefoneSelecionado }) {
         </button>
       </div>
 
+      {/* Lista de contatos salvos */}
       <div className="box2">
         <h2>Seus contatos</h2>
         <div className="agenda">
@@ -129,12 +131,18 @@ export default function Agenda({ setTelefoneSelecionado }) {
                 <p>{contato.numero}</p>
               </div>
               
+              {/* Ações: enviar, editar e excluir */}
               <div className="contato-buttons">
                 <button style={{"font-family": "var(--font-primary)"}} onClick={() => enviarMensagem(contato.numero)}>
                   Mensagem
                 </button>
-                <button style={{"font-family": "var(--font-primary)"}} onClick={() => editarContato(contato.id)}>Editar</button>
-                <button style={{"font-family": "var(--font-primary)",display:"flex", alignItems:"center"}} onClick={() => deletarContato(contato.id)}>
+                <button style={{"font-family": "var(--font-primary)"}} onClick={() => editarContato(contato.id)}>
+                  Editar
+                </button>
+                <button
+                  style={{"font-family": "var(--font-primary)", display:"flex", alignItems:"center"}}
+                  onClick={() => deletarContato(contato.id)}
+                >
                   <img src={LixoImg} alt="" width={15} height={15}/>
                 </button>
               </div>
