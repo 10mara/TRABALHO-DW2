@@ -1,14 +1,292 @@
-O projeto WhatsSM é uma aplicação desenvolvida em React que tem como objetivo facilitar a comunicação pelo WhatsApp, permitindo gerar links diretos para conversas e manter uma agenda de contatos organizada. Com uma interface simples e intuitiva, o usuário pode formatar números de telefone automaticamente, salvar, editar e excluir contatos conectados a um banco de dados no Supabase, além de enviar mensagens de forma prática sem precisar salvar o número manualmente no celular.
+# WhatsSM - Gerador de Links WhatsApp com Tradução Automática
 
-A estrutura do projeto é composta por diferentes componentes. O arquivo App.jsx é o componente principal que organiza a aplicação, exibindo o gerador de links e a agenda de contatos. Dentro da pasta components, estão os componentes responsáveis por cada funcionalidade: Gerador.jsx, que cria o link de conversa com base no número e na mensagem; Agenda.jsx, responsável por listar e gerenciar os contatos (com integração ao Supabase para operações de inserção, edição e exclusão); Mascara.jsx, que formata o número de telefone em tempo real; e Mensagem.jsx, onde o usuário pode digitar a mensagem que será enviada. A pasta imgs armazena os ícones utilizados na interface e a pasta styles contém os arquivos CSS de estilização de cada componente. Além disso, o arquivo supabaseClient.js faz a configuração da conexão com o banco de dados, utilizando as variáveis de ambiente definidas no arquivo .env.
+<div align="center">
 
-O projeto utiliza as tecnologias React.js para criação dos componentes e gerenciamento de estados, Supabase como banco de dados e backend, Vite como ferramenta de build e ambiente de desenvolvimento, e CSS Modules para estilização dos componentes.
+![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-No Supabase, é necessário criar uma tabela chamada contato com os campos: “id” (inteiro e chave primária), “nome” (texto) e “numero” (texto, contendo apenas dígitos). Para conectar o projeto ao banco, deve-se criar um arquivo .env na raiz do projeto e incluir as chaves de acesso, no formato:
-VITE_SUPABASE_URL=your-supabase-url e VITE_SUPABASE_KEY=your-supabase-key. Essas informações podem ser encontradas no painel do Supabase, na seção de configurações de API.
+**[🚀 Ver Aplicação Online](https://seu-projeto.vercel.app)** | **[📖 Documentação](#-sobre-o-projeto)** | **[💡 Funcionalidade Extra](#-funcionalidade-extra-tradução-automática)**
 
-Para executar o projeto localmente, basta clonar o repositório, acessar a pasta do projeto, instalar as dependências com o comando npm install, criar o arquivo .env com as variáveis citadas e, em seguida, rodar o servidor local com o comando npm run dev. O aplicativo poderá ser acessado no navegador através do endereço http://localhost:5173.
+</div>
 
-Ao utilizar o WhatsSM, o usuário pode digitar o número de WhatsApp desejado, escrever uma mensagem e gerar instantaneamente o link para iniciar a conversa. Caso queira manter o contato salvo, basta usar a funcionalidade de agenda, que permite armazenar, editar ou excluir contatos de maneira simples. A partir da agenda, também é possível selecionar um número e abrir a conversa diretamente no WhatsApp, tornando o processo rápido e eficiente.
+---
 
-O projeto WhatsSM foi desenvolvido por Marjory Gonçalves Cardoso e Samara Oliveira da Silva como parte de uma prática acadêmica voltada ao aprendizado de React e integração com o banco de dados Supabase.
+## 📋 Índice
+
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Funcionalidade Extra: Tradução Automática](#-funcionalidade-extra-tradução-automática)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Pré-requisitos](#-pré-requisitos)
+- [Instalação e Execução Local](#-instalação-e-execução-local)
+- [Configuração do Banco de Dados](#-configuração-do-banco-de-dados)
+- [Como Usar](#-como-usar)
+- [Autores](#-autores)
+
+---
+
+## 🎯 Sobre o Projeto
+
+**WhatsSM** é uma aplicação web desenvolvida em React que facilita a comunicação pelo WhatsApp, permitindo:
+
+- ✅ **Gerar links diretos** para conversas no WhatsApp sem salvar contatos
+- ✅ **Formatar números** automaticamente com máscara brasileira
+- ✅ **Gerenciar agenda** de contatos com CRUD completo (Create, Read, Update, Delete)
+- ✅ **Traduzir mensagens** automaticamente para múltiplos idiomas antes de enviar
+- ✅ **Integração com banco de dados** Supabase para persistência de dados
+
+### 🎨 Interface Intuitiva
+
+A aplicação possui uma interface simples e moderna, dividida em duas seções principais:
+
+1. **Gerador de Links**: Insira o número, escreva a mensagem (com opção de tradução) e gere o link
+2. **Agenda de Contatos**: Salve, edite e exclua contatos para acesso rápido
+
+---
+
+## 💡 Funcionalidade Extra: Tradução Automática
+
+### 🌍 O Diferencial do Projeto
+
+A **tradução automática de mensagens** é a funcionalidade inovadora que diferencia o WhatsSM de outros geradores de links do WhatsApp. 
+
+#### Por que implementamos?
+
+Em um mundo globalizado, a comunicação entre pessoas de diferentes idiomas é cada vez mais comum. Pensando nisso, adicionamos a capacidade de:
+
+- **Traduzir mensagens em tempo real** antes de enviar pelo WhatsApp
+- **Suporte a múltiplos idiomas**: Português, Inglês, Espanhol, Francês, Alemão, Italiano, Japonês, Coreano e Chinês
+- **Interface simples**: Selecione o idioma de origem e destino com apenas dois cliques
+- **Integração com API MyMemory**: Tradução gratuita e de qualidade
+
+#### Como funciona?
+
+\`\`\`javascript
+// Exemplo de uso da API de tradução
+const traduzirMensagem = async () => {
+  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(
+    mensagem
+  )}&langpair=${idiomaOrigem}|${idiomaSelecionado}`;
+  
+  const response = await fetch(url);
+  const data = await response.json();
+  setMensagem(data.responseData.translatedText);
+};
+\`\`\`
+
+#### Casos de Uso
+
+1. **Empresas internacionais**: Envie mensagens para clientes em seus idiomas nativos
+2. **Turismo**: Comunique-se com hotéis, restaurantes e serviços em outros países
+3. **E-commerce**: Atenda clientes internacionais sem barreiras linguísticas
+4. **Educação**: Facilite a comunicação entre estudantes e professores de diferentes nacionalidades
+
+---
+
+## 🛠 Tecnologias Utilizadas
+
+| Tecnologia | Descrição |
+|------------|-----------|
+| **React.js** | Biblioteca JavaScript para construção de interfaces |
+| **Vite** | Build tool moderna e rápida para desenvolvimento |
+| **Supabase** | Backend-as-a-Service (banco de dados PostgreSQL) |
+| **CSS Modules** | Estilização modular e isolada de componentes |
+| **MyMemory Translation API** | API gratuita para tradução de textos |
+
+---
+
+## 📁 Estrutura do Projeto
+
+\`\`\`
+whatssm/
+├── src/
+│   ├── components/
+│   │   ├── Gerador.jsx          # Componente gerador de links
+│   │   ├── Agenda.jsx           # Componente de gerenciamento de contatos
+│   │   ├── Mascara.jsx          # Componente de formatação de telefone
+│   │   └── Mensagem.jsx         # Componente de mensagem com tradução
+│   ├── imgs/                    # Ícones e imagens
+│   ├── styles/                  # Arquivos CSS dos componentes
+│   ├── App.jsx                  # Componente principal
+│   ├── main.jsx                 # Ponto de entrada da aplicação
+│   ├── index.css                # Estilos globais
+│   └── supabaseClient.js        # Configuração do Supabase
+├── .env                         # Variáveis de ambiente (não versionado)
+├── package.json                 # Dependências do projeto
+└── README.md                    # Documentação
+\`\`\`
+
+---
+
+## ✅ Pré-requisitos
+
+Antes de começar, certifique-se de ter instalado:
+
+- **Node.js** (versão 16 ou superior) - [Download](https://nodejs.org/)
+- **npm** ou **yarn** (gerenciador de pacotes)
+- **Conta no Supabase** (gratuita) - [Criar conta](https://supabase.com/)
+
+---
+
+## 🚀 Instalação e Execução Local
+
+### 1️⃣ Clone o repositório
+
+\`\`\`bash
+git clone https://github.com/seu-usuario/whatssm.git
+cd whatssm
+\`\`\`
+
+### 2️⃣ Instale as dependências
+
+\`\`\`bash
+npm install
+# ou
+yarn install
+\`\`\`
+
+### 3️⃣ Configure as variáveis de ambiente
+
+Crie um arquivo `.env` na raiz do projeto:
+
+\`\`\`bash
+touch .env
+\`\`\`
+
+Adicione as seguintes variáveis (substitua pelos seus valores do Supabase):
+
+\`\`\`env
+VITE_SUPABASE_URL=https://seu-projeto.supabase.co
+VITE_SUPABASE_KEY=sua-chave-publica-anon
+\`\`\`
+
+> **⚠️ Como obter as credenciais do Supabase:**
+> 1. Acesse [supabase.com](https://supabase.com/) e faça login
+> 2. Crie um novo projeto ou selecione um existente
+> 3. Vá em **Settings** → **API**
+> 4. Copie a **URL** e a **anon/public key**
+
+### 4️⃣ Execute o projeto
+
+\`\`\`bash
+npm run dev
+# ou
+yarn dev
+\`\`\`
+
+A aplicação estará disponível em: **http://localhost:5173**
+
+---
+
+## 🗄 Configuração do Banco de Dados
+
+### Criar tabela no Supabase
+
+1. Acesse o painel do Supabase
+2. Vá em **SQL Editor**
+3. Execute o seguinte comando SQL:
+
+\`\`\`sql
+CREATE TABLE contato (
+  id SERIAL PRIMARY KEY,
+  nome TEXT NOT NULL,
+  numero TEXT NOT NULL
+);
+\`\`\`
+
+### Estrutura da Tabela
+
+| Campo  | Tipo    | Descrição                          |
+|--------|---------|------------------------------------|
+| `id`   | INTEGER | Chave primária (auto-incremento)   |
+| `nome` | TEXT    | Nome do contato                    |
+| `numero` | TEXT  | Número de telefone (apenas dígitos)|
+
+### Habilitar Row Level Security (Opcional)
+
+Para projetos em produção, recomenda-se configurar políticas de segurança:
+
+\`\`\`sql
+-- Habilitar RLS
+ALTER TABLE contato ENABLE ROW LEVEL SECURITY;
+
+-- Permitir leitura e escrita para todos (ajuste conforme necessário)
+CREATE POLICY "Permitir acesso público" ON contato
+  FOR ALL USING (true);
+\`\`\`
+
+---
+
+## 📱 Como Usar
+
+### 1. Gerar Link do WhatsApp
+
+1. Digite o número de telefone no formato `(XX) XXXXX-XXXX`
+2. Escreva a mensagem que deseja enviar
+3. **(Opcional)** Clique em "Traduzir" para converter a mensagem para outro idioma
+4. Clique em "Preparar Mensagem" para gerar o link
+5. Clique em "Abrir WhatsApp" para iniciar a conversa
+
+### 2. Gerenciar Contatos
+
+#### Adicionar Contato
+1. Preencha o nome e número na seção "Agenda"
+2. Clique em "Salvar Contato"
+
+#### Editar Contato
+1. Clique no ícone de edição (✏️) ao lado do contato
+2. Modifique os dados
+3. Clique em "Atualizar Contato"
+
+#### Excluir Contato
+1. Clique no ícone de lixeira (🗑️) ao lado do contato
+2. Confirme a exclusão
+
+#### Enviar Mensagem para Contato
+1. Clique no ícone de mensagem (💬) ao lado do contato
+2. O número será automaticamente preenchido no gerador de links
+
+---
+
+## 👥 Autores
+
+Desenvolvido por:
+
+- **Marjory Gonçalves Cardoso** - [GitHub](https://github.com/marjory-cardoso) | [LinkedIn](https://linkedin.com/in/marjory-cardoso)
+- **Samara Oliveira da Silva** - [GitHub](https://github.com/samara-silva) | [LinkedIn](https://linkedin.com/in/samara-silva)
+
+---
+
+## 📄 Licença
+
+Este projeto foi desenvolvido como parte de uma prática acadêmica voltada ao aprendizado de React e integração com Supabase.
+
+---
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para:
+
+1. Fazer um fork do projeto
+2. Criar uma branch para sua feature (`git checkout -b feature/MinhaFeature`)
+3. Commit suas mudanças (`git commit -m 'Adiciona MinhaFeature'`)
+4. Push para a branch (`git push origin feature/MinhaFeature`)
+5. Abrir um Pull Request
+
+---
+
+## 📞 Suporte
+
+Se encontrar algum problema ou tiver sugestões, abra uma [issue](https://github.com/seu-usuario/whatssm/issues) no GitHub.
+
+---
+
+<div align="center">
+
+**Feito com ❤️ por Marjory Cardoso e Samara Silva**
+
+[⬆ Voltar ao topo](#whatssm---gerador-de-links-whatsapp-com-tradução-automática)
+
+</div>
