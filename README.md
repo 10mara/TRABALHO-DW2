@@ -11,4 +11,4 @@ Para executar o projeto localmente, basta clonar o repositório, acessar a pasta
 
 Ao utilizar o WhatsSM, o usuário pode digitar o número de WhatsApp desejado, escrever uma mensagem e gerar instantaneamente o link para iniciar a conversa. Caso queira manter o contato salvo, basta usar a funcionalidade de agenda, que permite armazenar, editar ou excluir contatos de maneira simples. A partir da agenda, também é possível selecionar um número e abrir a conversa diretamente no WhatsApp, tornando o processo rápido e eficiente.
 
-O projeto WhatsSM foi desenvolvido por Marjory Gonçalves Cardoso como parte de uma prática acadêmica voltada ao aprendizado de React e integração com o banco de dados Supabase.
+O projeto WhatsSM foi desenvolvido por Marjory Gonçalves Cardoso e Samara Oliveira da Silva como parte de uma prática acadêmica voltada ao aprendizado de React e integração com o banco de dados Supabase.
